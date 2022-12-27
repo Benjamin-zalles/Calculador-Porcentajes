@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calcular Porcentajes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/flowbite@1.5.5/dist/flowbite.js"></script>
+  </head>
+  <body class="font-mono text-xs sm:text-base bg-slate-100 relative">
+    <header
+      class="w-full h-16 bg-zinc-800 text-white flex justify-center items-center fixed top-0 left-0 right-0"
+    >
+      <h1 class="text-xl sm:text-3xl">Calcular Porcentajes</h1>
+    </header>
+
+    <div class="container px-4 mx-auto mt-20">
+      <p class="mt-5 flex justify-center underline">
+        Página creada con Tailwind
+      </p>
+
+      <div
+        class="border-black border-2 rounded-2xl mt-5 px-4 py-4 md:px-10 md:py-10 bg-white shadow-md"
+      >
+        <p class="font-bold text-lg underline">Instrucciones:</p>
+        <br />
+
+        <p>
+          Escribir los datos que desee calcular en los cuadros y pulsar el botón
+          Calcular para ver el resultado en el cuadro
+          <span class="bg-blue-800 text-white px-3 rounded">azul</span>. En caso
+          de decimales, se aproxima con 2 cifras (por ejemplo, si el resultado
+          es 10.998, la calculadora proporciona 11).
+        </p>
+        <br />
+
+        <p>
+          Las calculadoras escriben los datos en una tabla y aplican una regla
+          de tres simple, mostrando las operaciones.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-10 mb-10">
+        <!-- Calculadora 1 -->
+        <div
+          class="bg-white border-black border-2 rounded-2xl h-auto flex flex-col items-center gap-3 md:gap-5 pb-5"
+        >
+          <div
+            class="bg-black w-full text-white text-xl h-10 rounded-t-2xl flex justify-center items-center"
+          >
+            Calculadora 1
+          </div>
+          <p class="px-5">
+            <span class="font-extrabold underline">Descripción:</span> Calcular
+            el porcentaje de una cantidad dada.
+          </p>
+
+          <div class="flex items-center w-full gap-3 justify-center">
+            <p>El</p>
+            <!-- Input para el porcentaje -->
+            <input
+              type="number"
+              value="20"
+              class="bg-slate-100 h-5 w-10"
+              id="porcentaje-cal-uno"
+            />
+            <p>%</p>
+            <p>de</p>
+            <!-- Input de la cantidad -->
+            <input
+              type="number"
+              value="200"
+              class="bg-slate-100 h-5 w-10"
+              id="cantidad-cal-uno"
+            />
+            <p>es</p>
+            <p
+              class="bg-blue-800 rounded px-3 text-white"
+              id="resultado-cal-uno"
+            >
+              40
+            </p>
+          </div>
+          <button
+            class="bg-black hover:bg-gray-500 rounded-xl text-white px-10 py-3"
+            id="btn-cal-uno"
+          >
+            Calcular
+          </button>
+
+          <p>---------- Operación ----------</p>
+          <!-- Tabla -->
+          <div class="w-full flex justify-center">
+            <table class="w-6/12 text-sm text-left text-gray-500">
+              <thead class="text-xs text-white uppercase bg-black">
+                <tr>
+                  <th class="border-2 border-black text-center">n</th>
+                  <th class="border-2 border-black text-center">%</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-white">
+                  <td class="border-2 border-black text-center">x</td>
+                  <td
+                    class="border-2 border-black text-center"
+                    id="tbl-cal-uno-porcentaje"
+                  >
+                    20
+                  </td>
+                </tr>
+                <tr class="bg-white">
+                  <td
+                    class="border-2 border-black text-center"
+                    id="tbl-cal-uno-cantidad"
+                  >
+                    200
+                  </td>
+                  <td class="border-2 border-black text-center">100</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Formula matematica -->
+          <div class="flex gap-3 items-center">
+            <div>
+              <span>x</span>
+              <span>=</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <div>
+                <span id="formula-cal-uno-por">20</span>
+                <span>*</span>
+                <span id="formula-cal-uno-can">200</span>
+              </div>
+              <div>
+                <hr class="bg-black border-1 border-black w-20" />
+              </div>
+              <div>
+                <span>100</span>
+              </div>
+            </div>
+            <div>
+              <span>=</span>
+              <span id="r-for-uno">40</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CALCULADORA 2 -->
+        <div
+          class="bg-white border-black border-2 rounded-2xl h-auto flex flex-col items-center gap-3 md:gap-5 pb-5"
+        >
+          <div
+            class="bg-black w-full text-white text-xl h-10 rounded-t-2xl flex justify-center items-center"
+          >
+            Calculadora 2
+          </div>
+          <p class="px-5">
+            <span class="font-extrabold underline">Descripción:</span> Calcular
+            el total conociendo un porcentaje.
+          </p>
+
+          <div class="flex items-center w-full gap-1 justify-center">
+            <p>Si el</p>
+            <!-- Input para el porcentaje -->
+            <input
+              type="number"
+              value="10"
+              class="bg-slate-100 h-5 w-10"
+              id="porcentaje-cal-dos"
+            />
+            <p>%</p>
+            <p>es</p>
+            <!-- Input de la cantidad -->
+            <input
+              type="number"
+              value="20"
+              class="bg-slate-100 h-5 w-10"
+              id="cantidad-cal-dos"
+            />
+            <p>el total es</p>
+            <p
+              class="bg-blue-800 rounded px-3 text-white"
+              id="resultado-cal-uno"
+              id="resultado-cal-dos"
+            >
+              200
+            </p>
+          </div>
+          <button
+            class="bg-black hover:bg-gray-500 rounded-xl text-white px-10 py-3"
+            id="btn-cal-dos"
+          >
+            Calcular
+          </button>
+
+          <p>---------- Operación ----------</p>
+          <!-- Tabla -->
+          <div class="w-full flex justify-center">
+            <table class="w-6/12 text-sm text-left text-gray-500">
+              <thead class="text-xs text-white uppercase bg-black">
+                <tr>
+                  <th class="border-2 border-black text-center">n</th>
+                  <th class="border-2 border-black text-center">%</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="bg-white">
+                  <td
+                    class="border-2 border-black text-center"
+                    id="tbl-cal-dos-cantidad"
+                  >
+                    20
+                  </td>
+                  <td
+                    class="border-2 border-black text-center"
+                    id="tbl-cal-dos-porcentaje"
+                  >
+                    10
+                  </td>
+                </tr>
+                <tr class="bg-white">
+                  <td class="border-2 border-black text-center">x</td>
+                  <td class="border-2 border-black text-center">100</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Formula matematica -->
+          <div class="flex gap-3 items-center">
+            <div>
+              <span>x</span>
+              <span>=</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <div>
+                <span id="formula-cal-dos-por">20</span>
+                <span>*</span>
+                <span>100</span>
+              </div>
+              <div>
+                <hr class="bg-black border-1 border-black w-20" />
+              </div>
+              <div>
+                <span id="formula-cal-dos-can">10</span>
+              </div>
+            </div>
+            <div>
+              <span>=</span>
+              <span id="r-for-dos">200</span>
+            </div>
+          </div>
+        </div>
+        <!-- <div>hello</div>
+        <div>hello</div>
+        <div>hello</div>
+        <div>hello</div>
+        <div>hello</div> -->
+      </div>
+    </div>
+
+    <footer
+      class="w-full bg-zinc-900 h-20 flex justify-center items-center gap-3"
+    >
+      <p class="text-white">Page created by</p>
+      <span class="text-sky-600">©Benjamin</span>
+    </footer>
+
+    <script src="./js/calculadoraUno.js"></script>
+    <script src="./js/calculadoraDos.js"></script>
+  </body>
+</html>
